@@ -1,0 +1,36 @@
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.prev = None
+        self.next = None
+
+class DoublyLinkedList:
+    def __init__(self):
+        self.head = None
+
+    def traverse_forward(self):
+        if self.head is None:
+            print("The list is empty.")
+            return
+        
+        print("Forward Traversal:")
+        current = self.head
+        while current:
+            print(f"{current.data}", end=" <-> ")
+            current = current.next
+        print("None")
+
+    def traverse_backward(self):
+        if self.head is None:
+            print("The list is empty.")
+            return
+
+        current = self.head
+        while current.next:
+            current = current.next
+        
+        print("Backward Traversal:")
+        while current:
+            print(f"{current.data}", end=" <-> ")
+            current = current.prev
+        print("None")
