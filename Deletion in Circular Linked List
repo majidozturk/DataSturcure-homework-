@@ -1,0 +1,42 @@
+#The Node and Class Structure
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class CircularLinkedList:
+    def __init__(self):
+        self.head = None
+# Deletion from the Beginning
+def delete_at_beginning(self):
+        if not self.head:
+            print("List is empty")
+            return
+
+        if self.head.next == self.head:
+            self.head = None
+        else:
+            curr = self.head
+            while curr.next != self.head:
+                curr = curr.next
+            
+            curr.next = self.head.next
+            self.head = self.head.next
+# Deletion from the End
+
+def delete_at_end(self):
+        if not self.head:
+            return
+
+        if self.head.next == self.head:
+            self.head = None
+            return
+
+        curr = self.head
+        prev = None
+        # Traverse until the last node
+        while curr.next != self.head:
+            prev = curr
+            curr = curr.next
+        
+        prev.next = self.head
