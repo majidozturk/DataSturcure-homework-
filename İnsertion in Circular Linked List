@@ -1,0 +1,41 @@
+#The Node Structure
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+#Insert at the Beginning
+
+def insert_at_beginning(self, data):
+    new_node = Node(data)
+    if not self.head:
+        new_node.next = new_node
+        self.head = new_node
+        return
+
+    curr = self.head
+    while curr.next != self.head:
+        curr = curr.next
+    
+    new_node.next = self.head
+    curr.next = new_node
+    self.head = new_node
+
+#Insert at the End
+
+def insert_at_end(self, data):
+    new_node = Node(data)
+    if not self.head:
+        new_node.next = new_node
+        self.head = new_node
+        return
+
+    curr = self.head
+    while curr.next != self.head:
+        curr = curr.next
+    
+    curr.next = new_node
+    new_node.next = self.head
+
+
