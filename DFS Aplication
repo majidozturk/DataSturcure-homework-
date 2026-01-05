@@ -1,0 +1,18 @@
+def dfs_recursive(matrix, node, visited):
+    visited[node] = True
+    print(f"Visited node: {node}")
+
+    for neighbor in range(len(matrix)):
+        if matrix[node][neighbor] == 1 and not visited[neighbor]:
+            dfs_recursive(matrix, neighbor, visited)
+
+adj_matrix = [
+    [0, 1, 0, 0],
+    [1, 0, 1, 0],
+    [0, 1, 0, 0],
+    [0, 0, 0, 0]
+]
+
+visited_nodes = [False] * 4
+print("DFS Starting from Node 0:")
+dfs_recursive(adj_matrix, 0, visited_nodes)
