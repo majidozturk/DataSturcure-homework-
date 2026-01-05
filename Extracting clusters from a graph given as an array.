@@ -1,0 +1,28 @@
+def find_clusters(matrix):
+    n = len(matrix)
+    visited = [False] * n
+    clusters = []
+
+    def dfs(node, current_cluster):
+        visited[node] = True
+        current_cluster.append(node)
+        for neighbor in range(n):
+            if matrix[node][neighbor] == 1 and not visited[neighbor]:
+                dfs(neighbor, current_cluster)
+
+    for i in range(n):
+        if not visited[i]:
+            current_cluster = []
+            dfs(i, current_cluster)
+            clusters.append(current_cluster)
+            
+    return clusters
+
+
+graph_matrix = [
+    [1, 1, 0],
+    [1, 1, 0],
+    [0, 0, 1]
+]
+
+print("Extracted Clusters:", find_clusters(graph_matrix))
