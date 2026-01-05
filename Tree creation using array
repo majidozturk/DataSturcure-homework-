@@ -1,0 +1,32 @@
+class ArrayTree:
+    def __init__(self, size):
+        self.tree = [None] * size
+
+    def set_root(self, key):
+        self.tree[0] = key
+
+    def set_left(self, key, parent_index):
+        left_index = (2 * parent_index) + 1
+        if self.tree[parent_index] is None:
+            print(f"Cannot set child at {left_index}; Parent not found.")
+        else:
+            self.tree[left_index] = key
+
+    def set_right(self, key, parent_index):
+        right_index = (2 * parent_index) + 2
+        if self.tree[parent_index] is None:
+            print(f"Cannot set child at {right_index}; Parent not found.")
+        else:
+            self.tree[right_index] = key
+
+    def display(self):
+        print(self.tree)
+
+t = ArrayTree(10)
+t.set_root('A')      # Index 0
+t.set_left('B', 0)   # Index 1
+t.set_right('C', 0)  # Index 2
+t.set_left('D', 1)   # Index 3 (Child of B)
+
+t.display() 
+# Output: ['A', 'B', 'C', 'D', None, None, None, None, None, None]
